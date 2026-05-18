@@ -51,6 +51,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const questions = interviewData[selectedRole] || [];
 
@@ -82,7 +83,16 @@ function App() {
 
   const handleNext = async () => {
 
+    if (!answer.trim()) {
+      alert("Please type an answer first.");
+      return;
+    }
+
+    setLoading(true);
+
     await generateFeedback();
+
+    setLoading(false);
 
     setShowNextButton(true);
 
@@ -120,6 +130,40 @@ function App() {
 
             <p className="finalScore">{score}</p>
 
+            <div className="analytics">
+
+              <div className="analyticsCard">
+                <h3>Communication</h3>
+                <p>
+                  {score > 35
+                    ? "Excellent communication skills."
+                    : score > 20
+                    ? "Good communication with room for improvement."
+                    : "Need more confidence and detail."}
+                </p>
+              </div>
+
+              <div className="analyticsCard">
+                <h3>Confidence Level</h3>
+                <p>
+                  {score > 35
+                    ? "Highly confident responses."
+                    : score > 20
+                    ? "Moderately confident."
+                    : "Practice more mock interviews."}
+                </p>
+              </div>
+
+              <div className="analyticsCard">
+                <h3>Suggestions</h3>
+                <p>
+                  Improve answer structure, provide real examples,
+                  and maintain clarity while answering.
+                </p>
+              </div>
+
+            </div>
+
             <button
               className="restartBtn"
               onClick={() => window.location.reload()}
@@ -154,7 +198,13 @@ function App() {
               onChange={(e) => setAnswer(e.target.value)}
             />
 
-            {!showNextButton ? (
+            {loading ? (
+
+              <button className="nextBtn">
+                Analyzing Answer...
+              </button>
+
+            ) : !showNextButton ? (
 
               <button
                 className="nextBtn"
