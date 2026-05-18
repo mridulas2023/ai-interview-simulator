@@ -1,38 +1,187 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #111827
+  );
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  width: 500px;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(255,255,255,0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h2 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  color: #cbd5e1;
+  line-height: 1.6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.roleButton {
+  background: rgba(51, 65, 85, 0.8);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.roleButton:hover {
+  transform: translateY(-2px);
+  background: #475569;
+}
+
+.active {
+  background: #3b82f6;
+}
+
+.startBtn,
+.nextBtn,
+.restartBtn {
+  margin-top: 20px;
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #2563eb
+  );
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.startBtn:hover,
+.nextBtn:hover,
+.restartBtn:hover {
+  transform: scale(1.03);
+}
+
+.question {
+  margin-top: 25px;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 130px;
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 15px;
+  font-size: 15px;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.progressBar {
+  width: 100%;
+  height: 12px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #06b6d4
+  );
+  transition: 0.5s;
+}
+
+.feedbackBox {
+  margin-top: 25px;
+  background: rgba(51, 65, 85, 0.8);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.feedbackBox h3 {
+  color: #60a5fa;
+}
+
+.feedbackBox p {
+  color: white;
+}
+
+.resultScreen {
+  text-align: center;
+}
+
+.finalScore {
+  font-size: 60px;
+  font-weight: bold;
+  color: #22c55e;
+}
+
+.analytics {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.analyticsCard {
+  background: rgba(51, 65, 85, 0.8);
+  padding: 18px;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.analyticsCard h3 {
+  color: #60a5fa;
+}
+
+.analyticsCard p {
+  color: white;
 }
